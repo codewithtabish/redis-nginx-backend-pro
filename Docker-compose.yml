@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT}
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_URL=${REDIS_URL}
+      - REDISHOST=${REDISHOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDISUSER=${REDISUSER}
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/app
+    networks:
+      - backend  # Optional, if you have a custom network
+
+networks:
+  backend:
+    driver: bridge
