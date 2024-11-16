@@ -18,6 +18,11 @@ app.use('/api/v1/user', userRouter);
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello, TypeScript with Express!');
 });
+app.get('/test', (req: Request, res: Response) => {
+  res.send('Hello, TypeScript with Express from test!');
+});
+
+
 // Route: Set value in Redis
 app.get('/set-redis', async (req: Request, res: Response) => {
   try {
